@@ -1,5 +1,6 @@
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const sanitizeHtml = require('sanitize-html');
 
 module.exports = eleventyConfig => {
 	eleventyConfig.addPlugin(pluginRss);
@@ -11,7 +12,10 @@ module.exports = eleventyConfig => {
 	function extractExcerpt(post) {
 		if(!post.templateContent) return '...';
 		if(post.templateContent.length > 150) {
-			return post.templateContent.substring(0, 150).trimEnd() + '...';
+			return sanitizeHtml(post.templateContent.substring(0, 150).trimEnd(), {
+				allowedTags: [],
+				allowedAttributes: {}
+			}) + '...';
 		}
 		return post.templateContent;
 	}
@@ -49,6 +53,7 @@ module.exports = eleventyConfig => {
 		dir: {
 			input: 'src'
 		},
-		passthroughFileCopy: true
+		passthroughFileCopy: true,
+		markdownTemplateEngine: "md"
 	}
 };
