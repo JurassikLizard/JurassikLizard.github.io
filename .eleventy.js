@@ -6,6 +6,8 @@ module.exports = eleventyConfig => {
 	eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPlugin(syntaxHighlight);
 	eleventyConfig.addPassthroughCopy('./src/blog/css/*.css');
+	eleventyConfig.addPassthroughCopy('./src/blog/js/*.js');
+	eleventyConfig.addPassthroughCopy('./src/blog/images/');
 	
 	eleventyConfig.addShortcode('excerpt', post => extractExcerpt(post));
 
