@@ -1,6 +1,6 @@
 ---
 title: Launch!
-date: 2023-01-6
+date: 2023-01-06
 categories: ["blog","status"]
 tags: post
 preview: "Blog launch! General info and explanations."
