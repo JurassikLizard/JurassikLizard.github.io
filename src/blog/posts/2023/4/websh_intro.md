@@ -1,5 +1,5 @@
 ---
-title: Launch!
+title: WebSH!
 date: 2023-04-10
 categories: ["project","web-sh"]
 tags: post
